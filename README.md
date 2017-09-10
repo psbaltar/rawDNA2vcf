@@ -13,37 +13,37 @@ The generated support files for 23AndMe v4 are included in this repo. The script
 4. Use 23andme_to_vcf.py to convert the 23AndMe format raw data file to VCF with the help of the template and mapping files made in 2 and 3.
 
 
-### make_filter.py [Sample1] [Sample2] [Sample3] ... [SampleN]
+#### make_filter.py [Sample1] [Sample2] [Sample3] ... [SampleN]
 
     ls genome*.txt | xargs -n 1 ./make_filter.py > filter/23andme_v4.tsv
 
 Look at a bunch of raw data files and make a list of all variants that are reported. Not sure if multiple files are actually needed. The thought was that some files might not have all the tested variants (like if they weren't called).
 
-### make_map.py [outputMapFile] [filterFile] [snpListVCF]
+#### make_map.py [outputMapFile] [filterFile] [snpListVCF]
 
     ./make_map.py map/23andme_v4.map filter/23andme_v4.tsv All_20170710.vcf.gz
 
 Make a file that maps between 23AndMe rsid's and dbSNP rsid's
 
-### make_template.py [outputTemplateFile] [mapFile] [snpListVCF]
+#### make_template.py [outputTemplateFile] [mapFile] [snpListVCF]
 
     ./make_template.py template/23andme_v4.vcf map/23andme_v4.map All_20170710.vcf.gz; bgzip template/23andme_v4.vcf; tabix template/23andme_v4.vcf.gz
 
 Filter the giant dbSNP VCF into something that's easier to handle. Only grab the entries we need for 23AndMe
 
-### 23andme_to_vcf.py [23andmeInputFile] [outputSampleName] [mapFile] [templateFile] [VCFoutputFile]
+#### 23andme_to_vcf.py [23andmeInputFile] [outputSampleName] [mapFile] [templateFile] [VCFoutputFile]
 
     ./23andme_to_vcf.py genome_Philip_Baltar.txt Philip_Baltar map/23andme_v4.map template/23andme_v4.vcf.gz Philip_Baltar.vcf
 
 This is the main script that does all the magic. 
 
-### AncestryDNA_to_23andme.awk [inputfile]
+#### AncestryDNA_to_23andme.awk [inputfile]
 
     ./AncestryDNA_to_23andme.awk data.txt > AncestryDNA_23andme.txt
 
 Script to convert AncestryDNA files to 23AndMe format
 
-### FTdna_to_23andme.awk [inputfile]
+#### FTdna_to_23andme.awk [inputfile]
 
     ./FTdna_to_23andme.awk FTdna.csv > FTdna_23andme.txt
 
