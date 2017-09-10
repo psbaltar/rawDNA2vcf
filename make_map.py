@@ -18,7 +18,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #
-# make_filter.py [outputMapFile] [filterFile] [snpListVCF]
+# make_map.py [outputMapFile] [filterFile] [snpListVCF]
 
 import csv
 import re
